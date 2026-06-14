@@ -4,35 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a871fd7a-afa2-4643-bbc1-df683cc4d9ac" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/lm_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/mineru_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/minio_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/base.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_entry.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_md_img.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/import_processor/node_pdf_to_md.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/main_graph.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processor/state.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/minio_utils.py" afterDir="false" />
+    <list default="true" id="a871fd7a-afa2-4643-bbc1-df683cc4d9ac" name="更改" comment="文档切分">
+      <change afterPath="$PROJECT_DIR$/config/embedding_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/milvus_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promote/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/promote/item_name_recognition.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/bgem3测试向量转化_稠密向量.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/bgem3测试向量转换.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/embedding_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/milvus_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uv.lock" beforeDir="false" afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +28,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="34" />
+    <option name="cachedIndexableFilesCount" value="183" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,8 +40,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;taurusru1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/taurusru1/knowledge_base.git&quot;,
+    &quot;accountId&quot;: &quot;ee8ae2d4-151f-4965-bf4d-64b1f6d8f0fb&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_HOME_DIR$/plugins/python-ce/helpers/typeshed/stdlib/re.pyi" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../../Develop/uv_python/cpython-3.11-windows-x86_64-none/Lib/logging/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/../../../Develop/uv_python/cpython-3.11-windows-x86_64-none/Lib/re/__init__.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/langchain_core/messages/base.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/langchain_text_splitters/character.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/torch/version.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -71,11 +76,19 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.bgem3测试向量转化_稠密向量.executor&quot;: &quot;Run&quot;,
+    &quot;Python.bgem3测试向量转换.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.extend函数.executor&quot;: &quot;Debug&quot;,
     &quot;Python.main_graph.executor&quot;: &quot;Run&quot;,
     &quot;Python.minio_utils.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_bge_embedding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.node_document_split.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_entry.executor&quot;: &quot;Run&quot;,
-    &quot;Python.node_md_img.executor&quot;: &quot;Run&quot;,
+    &quot;Python.node_import_milvus.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_item_name_recognition.executor&quot;: &quot;Run&quot;,
+    &quot;Python.node_md_img.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_pdf_to_md.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.验证GPU.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -83,17 +96,18 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/project-python/python_project/knowledges_base/processor/import_processor&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project-python/python_project/knowledges_base&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.com.jetbrains.python.highlighting.PythonColorsPage&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project-python\python_project\knowledges_base" />
       <recent name="D:\project-python\python_project\knowledges_base\processor\import_processor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -102,7 +116,103 @@
       <recent name="D:\project-python\python_project\knowledges_base\processor" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.node_md_img">
+  <component name="RunManager" selected="Python.node_import_milvus">
+    <configuration name="验证GPU" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/验证GPU.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bgem3测试向量转换" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/bgem3测试向量转换.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="bgem3测试向量转化_稠密向量" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/bgem3测试向量转化_稠密向量.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extend函数" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/knowledge_base_teach/test/import" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/knowledge_base_teach/test/import/extend函数.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="minio_utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="knowledges_base" />
       <option name="ENV_FILES" value="" />
@@ -119,6 +229,102 @@
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/minio_utils.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="node_bge_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="node_document_split" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_document_split.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="node_import_milvus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="node_item_name_recognition" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,35 +357,18 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="node_pdf_to_md" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_pdf_to_md.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.node_import_milvus" />
+        <item itemvalue="Python.node_bge_embedding" />
+        <item itemvalue="Python.node_item_name_recognition" />
+        <item itemvalue="Python.node_document_split" />
+        <item itemvalue="Python.bgem3测试向量转化_稠密向量" />
+        <item itemvalue="Python.bgem3测试向量转换" />
+        <item itemvalue="Python.验证GPU" />
+        <item itemvalue="Python.extend函数" />
         <item itemvalue="Python.node_md_img" />
         <item itemvalue="Python.minio_utils" />
-        <item itemvalue="Python.node_pdf_to_md" />
       </list>
     </recent_temporary>
   </component>
@@ -198,10 +387,40 @@
       <option name="presentableId" value="Default" />
       <updated>1780220978868</updated>
     </task>
+    <task id="LOCAL-00001" summary="1.pdf转化成md文档&#10;2.调用vlm模型进行图片的摘要识别&#10;3.将图片上传minio，得到minio的图片地址，融合vlm模型生成 的摘要进行合并，替换原来md中的图片地址">
+      <option name="closed" value="true" />
+      <created>1780838677659</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1780838677659</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1.pdf转化成md文档&#10;2.调用vlm模型进行图片的摘要识别&#10;3.将图片上传minio，得到minio的图片地址，融合vlm模型生成 的摘要进行合并，替换原来md中的图片地址">
+      <option name="closed" value="true" />
+      <created>1780838714830</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1780838714830</updated>
+    </task>
+    <task id="LOCAL-00003" summary="文档切分">
+      <option name="closed" value="true" />
+      <created>1780840666554</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1780840666554</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.pdf转化成md文档&#10;2.调用vlm模型进行图片的摘要识别&#10;3.将图片上传minio，得到minio的图片地址，融合vlm模型生成 的摘要进行合并，替换原来md中的图片地址" />
+    <MESSAGE value="文档切分" />
+    <option name="LAST_COMMIT_MESSAGE" value="文档切分" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,14 +2,16 @@
 import json
 import logging
 import re
+from pathlib import Path
 from typing import Tuple, List, Dict
 
-from torch.ao.quantization.fx.utils import return_arg_list
+from reportlab.lib.pagesizes import elevenSeventeen
 
+from config.lm_config import lm_config
 from processor.base import BaseNode, setup_logging
 from processor.exceptions import StateFieldError
 from processor.state import ImportGraphState
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 class NodeDocumentSplit(BaseNode):
     """
@@ -49,6 +51,278 @@ class NodeDocumentSplit(BaseNode):
         # 写入状态字典
         state["chunks"] = sections
         return state
+
+    def _step_6_backup(self, state: ImportGraphState, sections: List[Dict[str, str]]) -> None:
+        """
+        【步骤6】Chunk结果本地JSON备份（便于调试/问题排查，保留处理结果）
+        :param state: 项目状态字典，需包含md_dir（备份目录）
+        :param sections: 最终处理后的Chunk列表
+        """
+        try:
+            # 拼接备份文件路径：固定文件名，便于查找
+            backup_path = Path("D:/output") / state.get("file_title") / "chunks.json"
+            # 写入JSON文件：保留中文/格式化缩进，便于人工查看
+            with open(backup_path, "w", encoding="utf-8") as f:
+                """
+                sections是Python 嵌套数据结构（List[Dict[str, str]]，列表里装字典，字典里可能嵌套字符串 / 数字等），而普通文件写入
+                （如f.write(sections)）仅支持写入字符串，直接写 Python 数据结构会报错。
+                json.dump的核心作用就是：将 Python 原生数据结构（列表、字典、字符串、数字等）直接序列化并写入 JSON 文件，无需手动转换为字符串，
+                同时保证数据格式规范、可跨语言 / 跨场景读取，完美适配「Chunk 列表备份」的需求。
+                """
+                json.dump(
+                    sections,
+                    f,
+                    # 开启 True："title": "\u4e00\u7ea7\u6807\u9898"（乱码，无法直接看）；
+                    # 开启 False："title": "一级标题"（正常中文，人工可直接阅读）。
+                    ensure_ascii=False,  # 保留中文，不转义为\u编码
+                    indent=2  # 格式化缩进，便于阅读
+                )
+            self.logger.info(f"步骤6：Chunk结果备份成功，备份文件路径：{backup_path}")
+        except Exception as e:
+            # 备份失败仅记录日志，不终止主流程
+            self.logger.error(f"步骤6：Chunk结果备份失败，错误信息：{str(e)}", exc_info=False)
+
+    def _step_5_print_stats(self, lines_count: int, sections: List[Dict[str, str]]) -> None:
+        """
+        【步骤5】输出文档切分统计信息（日志记录，便于监控/调试）
+        :param lines_count: MD原始文本总行数
+        :param sections: 最终处理后的Chunk列表
+        """
+        chunk_num = len(sections)
+        # 输出核心统计信息：原始行数/最终Chunk数/首个Chunk预览
+        self.logger.info("-" * 50 + " 文档切分统计信息 " + "-" * 50)
+        self.logger.info(f"MD原始文本总行数：{lines_count}")
+        self.logger.info(f"最终生成Chunk数量：{chunk_num}")
+
+    def _step_4_refine_chunks(self, sections: List[Dict[str, str]]) -> List[Dict[str, str]]:
+        """
+        【步骤4】Chunk精细化处理（核心：长切短合，适配大模型/检索）
+        执行流程：1.切分超长章节 2.合并过短章节 3.父标题兜底（适配Milvus向量库schema）
+        :param sections: 步骤3处理后的章节列表
+        :return: 长度适中、低碎片化的最终Chunk列表
+        """
+
+        # 阶段1.进行超长章节切分，对所有的长度控制在最大长度内
+        refined_split = []
+        for section in sections:
+            # 对每个章节执行超长切分，结果平铺加入列表（避免嵌套）
+            refined_split.extend(self._split_long_section(section))
+        self.logger.info(f"步骤4-1：超长章节切分完成，共生成{len(refined_split)}个初始子Chunk")
+
+        # 阶段2：合并过短章节 → 减少碎片化，提升后续检索/大模型调用效果
+        final_sections = self._merge_short_sections(refined_split)
+        self.logger.info(f"步骤4-2：过短章节合并完成，最终得到{len(final_sections)}个Chunk")
+
+        # 阶段3：父标题兜底 → 适配Milvus向量库schema（parent_title为必填字段）
+        # 兜底规则：无parent_title则用自身title，title也无则填空字符串
+        for sec in final_sections:
+            if not sec.get("parent_title"):
+                sec["parent_title"] = sec.get("title") or ""
+        self.logger.debug(f"步骤4-3：父标题兜底完成，所有Chunk均包含parent_title字段")
+
+        return final_sections
+
+
+
+
+    def _merge_short_sections(self, sections: List[Dict[str, str]]) -> List[Dict[str, str]]:
+        """
+        【辅助函数】过短章节合并（减少碎片化，提升检索效果）
+        核心规则：仅合并「同父标题」且「当前块长度不足阈值」的相邻Chunk，避免跨章节合并
+        :param sections: 待合并的Chunk列表（通常是_split_long_section切分后的结果）
+        :return: 合并后的Chunk列表，长度适中，保留元信息
+        """
+        # 1.健壮性检验，判断sections是否为空，为空就返回空列表
+        # 边界处理：空列表直接返回，避免后续索引报错
+        if not sections:
+            self.logger.debug("待合并Chunk列表为空，直接返回")
+            return []
+        # 2.定义一个合并的列表，用于保存短合的结果;定义一个current_chunk，用户保存上一个的chunk
+        merged_sections = [] # 合并最终结果
+        current_chunk = None # 迭代累加器：保存当前待合并的Chunk
+        # 2.1 遍历每一个sections 成section,判断current_chunk是不是空，如果是空，就初始化这个curren_chunk为当前的section
+        for section in sections:
+            if not current_chunk:
+                current_chunk = section
+
+            # 3.如果不是空，就判断当前section的content的长度是否小于min_content_length 并且 是不是同一个title，都满足就合并
+            # 构造合并条件,1.当前块长度不足阈值 2.与下一块同父标题（同属一个原章节）
+            is_current_short = len(current_chunk["content"]) < self.config.min_content_length
+            is_same_parent = current_chunk.get("parent_title") == section.get("parent_title")
+            # 合并开始：首先要清理要合并的chunk的title，然后才能进行合并
+            if is_current_short and is_same_parent:
+                # 合并前清理：去掉下一块开头重复的父标题，避免内容冗余
+                parent_title = section.get("parent_title")
+                next_content = section["content"]
+                if parent_title and next_content.startswith(parent_title):
+                    next_content = next_content[len(parent_title):].lstrip()
+                # 合并内容：空行分隔，保证格式整洁
+                current_chunk["content"] += "\n\n" + next_content
+                # 更新子Chunk序号：保留最新序号，便于溯源
+                if "part" in section:
+                    current_chunk["part"] = section["part"]
+                self.logger.debug(
+                    f"合并短Chunk：{current_chunk.get('parent_title')} → 累计长度{len(current_chunk['content'])}")
+
+            else:
+                # 不满足合并条件：将当前块加入结果，切换为新的待合并块
+                merged_sections.append(current_chunk)
+                current_chunk = section
+        # 循环结束，将最后一个待合并块加入结果到结果列表中
+        if current_chunk is not None:
+            merged_sections.append(current_chunk)
+        self.logger.debug(f"短Chunk合并完成：原{len(sections)}个 → 合并后{len(merged_sections)}个")
+        return merged_sections
+
+
+    def _split_long_section(self, section: Dict[str, str]) -> List[Dict[str, str]]:
+        """
+        【辅助函数】超长章节二次切分（核心适配LangChain分割器）
+        功能：单个章节内容超限时，按「段落→句子→空格」从粗到细切分，保留语义
+        切分规则：1.先按空行(段落) 2.再按换行 3.最后按中英文标点/空格
+        :param section: 原始章节字典，必须包含content键，可选title/file_title等
+        :return: 切分后的子章节列表，每个子章节带父标题/序号等元信息
+        """
+        # 内容空值兜底：无内容直接返回原章节
+        content = section.get("content", "")
+        # 长度未超限，无需切分，直接返回原章节（列表格式保持统一）
+        if len(content) <= self.config.max_content_length:
+            return [section]
+
+        # 提取章节标题，用于组装子Chunk前缀（保留标题上下文）
+        title = section.get("title", "")
+        # 标题前缀：带空行分隔，与正文区分开
+        prefix = f"{title}\n\n" if title else ""
+        # 计算正文可用长度：总长度 - 标题前缀长度（避免标题占满Chunk额度）
+        available_len = self.config.max_content_length - len(prefix)
+        # 极端情况：标题长度超过阈值，无法切分，返回原章节
+        if available_len <= 0:
+            self.logger.warning(f"章节标题过长，无法切分：{title[:20]}...")
+            return [section]
+
+        # 清理正文重复标题：避免原章节中正文开头重复标题，导致子Chunk内容冗余
+        body = content
+        if title and body.lstrip().startswith(title): # 如果title有值，并且把title的左侧空格去掉再判断是不是以title开头
+            body = body[body.find(title) + len(title):].lstrip() # 找到 title 在 body 里的起始位置，移到 title 结束的位置，从标题后面开始截取剩余内容，再把截取后左边的空格、换行去掉
+
+        # 开始正常切分正文
+        # 定义一个切分器 （核心工具：按优先级分隔符切分，保留语义）
+
+
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=available_len,  # 正文部分最大长度（已扣除标题）
+            chunk_overlap=0,  # 无重叠：按标题切分后语义完整，无需重叠
+            # 分割符优先级：空行(段落)→换行→中文标点→英文标点→空格，最后硬拆（在 chunk_size 位置强制切断）
+            # 先用第一个分隔符进行切分，切分后如果某个 Chunk 还是超过 chunk_size，则继续用下一个优先级的分隔符切分
+            separators=["\n\n", "\n", "。", "！", "？", "；", ".", "!", "?", ";", " "],
+        )
+        # 切分正文并组装子章节（带完整元信息，便于溯源）
+        sub_sections = []
+        # 遍历切分后的每个文本块，idx从1开始
+        # 把 body 这段文本切分成多个小块，返回一个可迭代对象/列表。在遍历这些小块时，顺便给每个小块一个编号，并且编号从 1 开始，
+        for idx,chunk in enumerate(splitter.split_text(body), start=1):
+            # 清理空内容：跳过切分后的空字符串
+            text = chunk.strip()
+            if not text:
+                continue
+
+            # 组装子Chunk完整内容 = 标题前缀 + 切分后的正文
+            full_text = (prefix + text).strip()
+
+            # 子章节元信息：保留父级关联，添加序号，便于后续检索/溯源
+            sub_sections.append({
+                "title": f"{title}-{idx}" if title else f"chunk-{idx}",  # 子Chunk标题（带序号）
+                "content": full_text,  # 切分后的完整内容
+                "parent_title": title,  # 父章节标题（用于后续合并）
+                "part": idx,  # 子Chunk序号
+                "file_title": section.get("file_title"),  # 所属文件标题
+            })
+
+            self.logger.info(f"超长章节切分完成：{title} → 生成{len(sub_sections)}个子Chunk")
+            return sub_sections
+
+
+    def _step_3_handle_no_title(self, content: str, sections: List[Dict[str, str]], title_count: int,
+                                file_title: str) -> List[Dict[str, str]]:
+        """
+        【步骤3】无标题兜底处理
+        功能：若MD中未识别到任何标题，将全文作为一个整体处理，避免后续逻辑异常
+        :param content: 标准化后的MD完整内容
+        :param sections: 步骤2切分后的章节列表
+        :param title_count: 步骤2识别的有效标题数量
+        :param file_title: 所属文件标题
+        :return: 兜底后的章节列表
+        """
+
+        if title_count > 0:
+            return sections
+
+        # 对全文内容进行清楚前后空格
+        clean_content = content.strip()
+        if not clean_content:
+            return sections
+
+        title = self._generate_title_for_no_title_content(clean_content, file_title)
+        if not sections:
+            return [{
+                "title": title,
+                "content": clean_content,
+                "file_title": file_title
+            }]
+
+        for section in sections:
+            if not section.get("title"):
+                section["title"] = title
+            section["file_title"] = section.get("file_title") or file_title
+
+        return sections
+
+    def _generate_title_for_no_title_content(self, content: str, file_title: str) -> str:
+        # 制作一个兜底标题
+        fallback_title = self._clean_generated_title(file_title) or "未命名段落"
+        # 限制送给模型的内容长度
+        prompt_content = content[:2000]
+
+        try:
+            from langchain_openai import ChatOpenAI
+
+            chat_model = ChatOpenAI(
+                model=lm_config.llm_model,
+                api_key=lm_config.api_key,
+                base_url=lm_config.base_url,
+                temperature=0
+            )
+            messages = [
+                {
+                    "role": "system",
+                    "content": "你是文档标题生成助手，只输出一个中文短标题，不要解释。"
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        "请根据下面这段无标题Markdown内容生成一个段落标题。"
+                        "要求：标题简短；去掉所有空格；控制在20个字以内；"
+                        "不要输出引号、标点解释或Markdown符号。\n\n"
+                        f"文档名：{file_title}\n\n内容：\n{prompt_content}"
+                    )
+                }
+            ]
+            response = chat_model.invoke(messages)
+            # 模型返回后再清洗一遍，因为即使 prompt 写了规则，模型也不一定 100%听话，所以还要程序再收口一次。
+            return self._clean_generated_title(response.content) or fallback_title
+        except Exception as e:
+            self.logger.error(f"无标题段落标题生成失败: {e}")
+            return fallback_title
+
+    @staticmethod
+    def _clean_generated_title(title: str) -> str:
+        if not title:
+            return ""
+
+        title = re.sub(r"\s+", "", str(title))
+        title = re.sub(r"^[#\-_*`'\"“”‘’《》【】\[\]（）()：:，,。.!！?？]+", "", title)
+        title = re.sub(r"[#\-_*`'\"“”‘’《》【】\[\]（）()：:，,。.!！?？]+$", "", title)
+        return title[:20]
 
     def _step_2_split_by_titles(self, content: str, file_title: str) -> Tuple[List[Dict[str, str]], int, int]:
         """
@@ -96,7 +370,7 @@ class NodeDocumentSplit(BaseNode):
                 current_lines.append(line)
                 continue
             # 4.2 判断是不是普通标题，判断标题是看title_pattern是不是匹配标题的正则表达式
-            is_valid_title = in_code_block and re.match(title_pattern, striped_line)
+            is_valid_title = (not in_code_block) and re.match(title_pattern, striped_line)
             if is_valid_title:
                 # 如果是标题 就要把上面的文本进行调用_flush_section进行组装sections，并且将striped_line到current_title中，并且放到current_lines
                 _flush_section()
@@ -132,6 +406,7 @@ class NodeDocumentSplit(BaseNode):
         md_content = md_content.replace("\r\n", "\n").replace("\r", "\n")
 
         return md_content, file_title
+
 
 
 
