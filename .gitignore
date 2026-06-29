@@ -39,3 +39,5 @@ Thumbs.db
 # Local data artifacts
 *.zip
 /.gitignore
+
+knowledge_base_teach

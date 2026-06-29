@@ -5,16 +5,17 @@ from typing import List, Dict, Tuple
 
 from langchain_core.messages import SystemMessage, HumanMessage
 from langchain_openai import ChatOpenAI
-from pyexpat.errors import messages
 from pymilvus import DataType
 
 from config.lm_config import lm_config
 from config.milvus_config import milvus_config
-from knowledge_base_teach.utils.embedding_utils import generate_embeddings
-from processor.base import BaseNode, setup_logging
-from processor.exceptions import StateFieldError
-from processor.state import ImportGraphState
-from promote.item_name_recognition import ITEM_NAME_USER_PROMPT_TEMPLATE, ITEM_NAME_SYSTEM_PROMPT
+from processor.import_processor.promote.item_name_recognition import ITEM_NAME_USER_PROMPT_TEMPLATE, \
+    ITEM_NAME_SYSTEM_PROMPT
+from utils.embedding_utils import generate_embeddings
+from processor.import_processor.base import BaseNode, setup_logging
+from processor.import_processor.exceptions import StateFieldError
+from processor.import_processor.state import ImportGraphState
+
 from utils.milvus_utils import get_milvus_client, escape_milvus_string
 
 

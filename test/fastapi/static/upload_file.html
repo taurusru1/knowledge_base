@@ -1,0 +1,344 @@
+NEW_FILE_CODE
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .upload-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        input[type="file"]:hover {
+            border-color: #667eea;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .file-info {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #666;
+            display: none;
+        }
+
+        .file-info.show {
+            display: block;
+        }
+
+        .btn-upload {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-upload:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-upload:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.success {
+            display: block;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .result.error {
+            display: block;
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .result-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .result-data {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .requirements {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #856404;
+        }
+
+        .requirements strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .requirements ul {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h1>📁 文件上传测试</h1>
+        <p class="subtitle">测试 FastAPI 文件上传接口</p>
+
+        <div class="requirements">
+            <strong>📌 支持的文件类型：</strong>
+            <ul>
+                <li>图片格式：JPEG, PNG, GIF</li>
+                <li>文件大小：无限制（分块上传）</li>
+            </ul>
+        </div>
+
+        <form id="uploadForm">
+            <div class="form-group">
+                <label for="file">选择文件 *</label>
+                <input type="file" id="file" name="upload_file" required accept="image/*">
+                <div class="file-info" id="fileInfo"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="remark">备注（可选）</label>
+                <input type="text" id="remark" name="remark" placeholder="输入备注信息...">
+            </div>
+
+            <button type="submit" class="btn-upload" id="uploadBtn">
+                🚀 上传文件
+            </button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>正在上传文件，请稍候...</p>
+        </div>
+
+        <div class="result" id="result">
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-data" id="resultData"></div>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const fileInfo = document.getElementById('fileInfo');
+        const uploadForm = document.getElementById('uploadForm');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const loading = document.getElementById('loading');
+        const result = document.getElementById('result');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultData = document.getElementById('resultData');
+
+        // 显示文件信息
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const size = (file.size / 1024).toFixed(2);
+                fileInfo.innerHTML = `
+                    <strong>文件名：</strong>${file.name}<br>
+                    <strong>类型：</strong>${file.type || '未知'}<br>
+                    <strong>大小：</strong>${size} KB
+                `;
+                fileInfo.classList.add('show');
+            } else {
+                fileInfo.classList.remove('show');
+            }
+        });
+
+        // 表单提交
+        uploadForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const file = fileInput.files[0];
+            if (!file) {
+                showResult('error', '错误', '请选择一个文件');
+                return;
+            }
+
+            const remark = document.getElementById('remark').value;
+
+            // 构建 FormData
+            const formData = new FormData();
+            formData.append('upload_file', file);
+            if (remark) {
+                formData.append('remark', remark);
+            }
+
+            // 显示加载状态
+            uploadBtn.disabled = true;
+            loading.classList.add('show');
+            result.classList.remove('success', 'error');
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    showResult('success', '✅ 上传成功！', formatResponse(data));
+                } else {
+                    const error = await response.json();
+                    showResult('error', '❌ 上传失败', error.detail || '未知错误');
+                }
+            } catch (error) {
+                showResult('error', '❌ 网络错误', error.message);
+            } finally {
+                uploadBtn.disabled = false;
+                loading.classList.remove('show');
+            }
+        });
+
+        // 显示结果
+        function showResult(type, title, data) {
+            result.className = 'result ' + type;
+            resultTitle.textContent = title;
+            
+            if (typeof data === 'string') {
+                resultData.textContent = data;
+            } else {
+                resultData.innerHTML = data;
+            }
+        }
+
+        // 格式化响应数据
+        function formatResponse(data) {
+            if (!data.data) {
+                return JSON.stringify(data, null, 2);
+            }
+
+            const d = data.data;
+            return `
+                <strong>原始文件名：</strong>${d.filename}<br>
+                <strong>保存文件名：</strong>${d.saved_filename}<br>
+                <strong>文件类型：</strong>${d.content_type}<br>
+                <strong>文件大小：</strong>${d.file_size} 字节<br>
+                <strong>保存路径：</strong>${d.save_path}<br>
+                ${d.remark ? `<strong>备注：</strong>${d.remark}<br>` : ''}
+                <strong>响应码：</strong>${data.code}<br>
+                <strong>消息：</strong>${data.msg}
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -3,9 +3,11 @@
 import logging
 from pathlib import Path
 
-from processor.base import setup_logging, BaseNode
-from processor.exceptions import ImportProcessError, StateFieldError, FileProcessingError, ValidationError
-from processor.state import ImportGraphState
+from multipart import file_path
+
+from processor.import_processor.base import setup_logging, BaseNode
+from processor.import_processor.exceptions import StateFieldError, FileProcessingError, ValidationError
+from processor.import_processor.state import ImportGraphState
 
 
 class NodeEntry(BaseNode):
@@ -55,7 +57,8 @@ if __name__ == "__main__":
     setup_logging()
 
     init_state = {
-        "import_file_path" : r"D:\课程\尚硅谷\掌柜智库\2.资料\04-设备手册汇总\doc\hak180产品安全手册.pdf"
+        "import_file_path" : r"D:\课程\尚硅谷\掌柜智库\2.资料\04-设备手册汇总\doc\hak180产品安全手册.pdf",
+        "file_path" : r"D:/output"
 
     }
     node_entry = NodeEntry()

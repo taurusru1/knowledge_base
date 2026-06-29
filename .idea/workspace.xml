@@ -4,22 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a871fd7a-afa2-4643-bbc1-df683cc4d9ac" name="更改" comment="文档切分">
-      <change afterPath="$PROJECT_DIR$/config/embedding_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/milvus_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promote/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/promote/item_name_recognition.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/bgem3测试向量转化_稠密向量.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/bgem3测试向量转换.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/embedding_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/milvus_utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+    <list default="true" id="a871fd7a-afa2-4643-bbc1-df683cc4d9ac" name="更改" comment="上传文档完结">
+      <change afterPath="$PROJECT_DIR$/config/reranker_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/import_processor/nodes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/main_graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_answer_output.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_item_name_confirm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_rerank.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_rrf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_search_embedding.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_search_embedding_hyde.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/nodes/node_web_search_mcp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/promote/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/promote/item_name_confirm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/promote/search_embedding_hyde.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processor/query_processor/state.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/01demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/02demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/backend_cors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/fast_amont.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/static/frontend.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/static/upload_file.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/fastapi/uplaod_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/sse/sse4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/测试连接mongodb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tool/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/json_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/llm_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/mongo_history_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/reranker_http_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/sse_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/task_utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/api/import_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/page/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/page/import.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/knowledges_base.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/knowledges_base.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_bge_embedding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_document_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_document_split.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_entry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_import_milvus.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_item_name_recognition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_md_img.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_md_img.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/import_processor/node_pdf_to_md.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/nodes/node_pdf_to_md.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/main_graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/main_graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/state.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/state.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promote/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/bailian_mcp_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/promote/item_name_recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/processor/import_processor/promote/item_name_recognition.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/embedding_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/embedding_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/milvus_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/milvus_utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uv.lock" beforeDir="false" afterPath="$PROJECT_DIR$/uv.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,11 +80,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="183" />
+    <option name="cachedIndexableFilesCount" value="88" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -75,19 +129,38 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.01demo.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.backend_cors.executor&quot;: &quot;Run&quot;,
     &quot;Python.bgem3测试向量转化_稠密向量.executor&quot;: &quot;Run&quot;,
     &quot;Python.bgem3测试向量转换.executor&quot;: &quot;Debug&quot;,
     &quot;Python.extend函数.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.fast_amont.executor&quot;: &quot;Run&quot;,
+    &quot;Python.import_service.executor&quot;: &quot;Run&quot;,
     &quot;Python.main_graph.executor&quot;: &quot;Run&quot;,
     &quot;Python.minio_utils.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.mongo_history_utils.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_bge_embedding.executor&quot;: &quot;Run&quot;,
     &quot;Python.node_document_split.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_entry.executor&quot;: &quot;Run&quot;,
     &quot;Python.node_import_milvus.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_item_name_confirm.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_item_name_recognition.executor&quot;: &quot;Run&quot;,
     &quot;Python.node_md_img.executor&quot;: &quot;Debug&quot;,
     &quot;Python.node_pdf_to_md.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_rerank.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_rrf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.node_search_embedding.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_search_embedding_hyde.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.node_web_search_mcp.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sse1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sse2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sse3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sse4.executor&quot;: &quot;Run&quot;,
+    &quot;Python.uplaod_file (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.uplaod_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python.测试连接mongodb.executor&quot;: &quot;Run&quot;,
     &quot;Python.验证GPU.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -96,7 +169,8 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/project-python/python_project/knowledges_base&quot;,
+    &quot;js.last.introduce.type&quot;: &quot;CONST&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/project-python/python_project/knowledges_base/web&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,17 +181,238 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project-python\python_project\knowledges_base\web" />
+      <recent name="D:\project-python\python_project\knowledges_base\utils" />
+      <recent name="D:\project-python\python_project\knowledges_base\processor\query_processor\nodes" />
+      <recent name="D:\project-python\python_project\knowledges_base\processor\query_processor" />
       <recent name="D:\project-python\python_project\knowledges_base" />
-      <recent name="D:\project-python\python_project\knowledges_base\processor\import_processor" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\project-python\python_project\knowledges_base" />
-      <recent name="D:\project-python\python_project\knowledges_base\processor\config" />
-      <recent name="D:\project-python\python_project\knowledges_base\processor" />
+      <recent name="D:\project-python\python_project\knowledges_base\web\page" />
+      <recent name="D:\project-python\python_project\knowledges_base\test\sse" />
+      <recent name="D:\project-python\python_project\knowledges_base\test\fastapi" />
+      <recent name="D:\project-python\python_project\knowledges_base\processor\import_processor" />
+      <recent name="D:\project-python\python_project\knowledges_base\processor\import_processor\nodes" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.node_import_milvus">
-    <configuration name="验证GPU" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.import_service">
+    <configuration name="01demo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/fastapi/01demo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="backend_cors" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/fastapi/backend_cors.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="fast_amont" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/fastapi/fast_amont.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="import_service" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/web/api" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/web/api/import_service.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sse1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="D:\project-python\python_project\knowledges_base\test\sse\sse1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sse2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/sse" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/sse/sse2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sse3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/sse" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/sse/sse3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sse4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/sse" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/sse/sse4.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="uplaod_file (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="knowledges_base" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/fastapi" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/fastapi/uplaod_file.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="uplaod_file" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="knowledges_base" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,7 +427,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/验证GPU.py" />
+      <option name="SCRIPT_NAME" value="D:\project-python\python_project\knowledges_base\test\fastapi\uplaod_file.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,234 +436,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="bgem3测试向量转换" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/bgem3测试向量转换.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="bgem3测试向量转化_稠密向量" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/bgem3测试向量转化_稠密向量.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="extend函数" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/knowledge_base_teach/test/import" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/knowledge_base_teach/test/import/extend函数.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="minio_utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/minio_utils.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="node_bge_embedding" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_bge_embedding.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="node_document_split" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_document_split.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="node_import_milvus" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_import_milvus.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="node_item_name_recognition" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_item_name_recognition.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="node_md_img" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="knowledges_base" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/processor/import_processor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/processor/import_processor/node_md_img.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+    <configuration default="true" type="lua.app" factoryName="Lua Application">
+      <option name="program" value="lua.exe" />
+      <option name="file" value="" />
+      <option name="workingDir" value="$PROJECT_DIR$/knowledge_base_teach" />
+      <option name="debuggerType" value="1" />
+      <option name="params" value="" />
+      <option name="charset" value="UTF-8" />
+      <option name="showConsole" value="true" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.node_import_milvus" />
-        <item itemvalue="Python.node_bge_embedding" />
-        <item itemvalue="Python.node_item_name_recognition" />
-        <item itemvalue="Python.node_document_split" />
-        <item itemvalue="Python.bgem3测试向量转化_稠密向量" />
-        <item itemvalue="Python.bgem3测试向量转换" />
-        <item itemvalue="Python.验证GPU" />
-        <item itemvalue="Python.extend函数" />
-        <item itemvalue="Python.node_md_img" />
-        <item itemvalue="Python.minio_utils" />
+        <item itemvalue="Python.import_service" />
+        <item itemvalue="Python.sse4" />
+        <item itemvalue="Python.sse3" />
+        <item itemvalue="Python.sse2" />
+        <item itemvalue="Python.sse1" />
+        <item itemvalue="Python.uplaod_file (1)" />
+        <item itemvalue="Python.uplaod_file" />
+        <item itemvalue="Python.fast_amont" />
+        <item itemvalue="Python.backend_cors" />
+        <item itemvalue="Python.01demo" />
       </list>
     </recent_temporary>
   </component>
@@ -411,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780840666554</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="上传文档完结">
+      <option name="closed" value="true" />
+      <created>1781407000428</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1781407000429</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,10 +517,38 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.pdf转化成md文档&#10;2.调用vlm模型进行图片的摘要识别&#10;3.将图片上传minio，得到minio的图片地址，融合vlm模型生成 的摘要进行合并，替换原来md中的图片地址" />
     <MESSAGE value="文档切分" />
-    <option name="LAST_COMMIT_MESSAGE" value="文档切分" />
+    <MESSAGE value="上传文档完结" />
+    <option name="LAST_COMMIT_MESSAGE" value="上传文档完结" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/processor/query_processor/nodes/node_search_embedding_hyde.py</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/processor/query_processor/nodes/node_search_embedding_hyde.py</url>
+          <line>51</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/processor/query_processor/nodes/node_web_search_mcp.py</url>
+          <line>28</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/processor/query_processor/nodes/node_web_search_mcp.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/processor/query_processor/nodes/node_web_search_mcp.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -432,5 +557,10 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="res" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

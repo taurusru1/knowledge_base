@@ -3,12 +3,10 @@ import json
 import logging
 from typing import List, Dict
 
-from sympy import content
-
-from knowledge_base_teach.utils.embedding_utils import generate_embeddings
-from processor.base import BaseNode, setup_logging
-from processor.exceptions import StateFieldError
-from processor.state import ImportGraphState
+from utils.embedding_utils import generate_embeddings
+from processor.import_processor.base import BaseNode, setup_logging
+from processor.import_processor.exceptions import StateFieldError
+from processor.import_processor.state import ImportGraphState
 
 
 class NodeBGEEmbedding(BaseNode):

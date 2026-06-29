@@ -1,15 +1,15 @@
 from langgraph.constants import END
 from langgraph.graph import StateGraph
 
-from processor.base import setup_logging
-from processor.import_processor.node_bge_embedding import NodeBGEEmbedding
-from processor.import_processor.node_document_split import NodeDocumentSplit
-from processor.import_processor.node_import_milvus import NodeImportMilvus
-from processor.import_processor.node_item_name_recognition import NodeItemNameRecognition
-from processor.import_processor.node_md_img import NodeMDImg
-from processor.import_processor.node_pdf_to_md import NodePDFToMD
-from processor.import_processor.node_entry import NodeEntry
-from processor.state import ImportGraphState
+from processor.import_processor.base import setup_logging
+from processor.import_processor.nodes.node_bge_embedding import NodeBGEEmbedding
+from processor.import_processor.nodes.node_document_split import NodeDocumentSplit
+from processor.import_processor.nodes.node_import_milvus import NodeImportMilvus
+from processor.import_processor.nodes.node_item_name_recognition import NodeItemNameRecognition
+from processor.import_processor.nodes.node_md_img import NodeMDImg
+from processor.import_processor.nodes.node_pdf_to_md import NodePDFToMD
+from processor.import_processor.nodes.node_entry import NodeEntry
+from processor.import_processor.state import ImportGraphState
 
 
 class KBImportWorkflow:
@@ -91,7 +91,8 @@ class KBImportWorkflow:
         self.graph.get_graph().print_ascii()
 
         if stream:
-            return self.graph.stream(state, stream_mode="values")
+            # return self.graph.stream(state, stream_mode="values")
+            return self.graph.stream(state)
         else:
             return self.graph.invoke(state)
 
@@ -107,3 +108,6 @@ if __name__ == "__main__":
     # 传入初始状态
     final_state = workflwo.run(state=init_state)
     print(final_state)
+
+
+

@@ -8,9 +8,9 @@ from pathlib import Path
 
 import requests
 
-from processor.base import BaseNode, setup_logging
-from processor.exceptions import FileProcessingError, StateFieldError, PdfConversionError
-from processor.state import ImportGraphState
+from processor.import_processor.base import BaseNode, setup_logging
+from processor.import_processor.exceptions import FileProcessingError, StateFieldError, PdfConversionError
+from processor.import_processor.state import ImportGraphState
 
 
 class NodePDFToMD(BaseNode):

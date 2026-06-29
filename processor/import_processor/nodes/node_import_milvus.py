@@ -6,9 +6,9 @@ from typing import Dict, Any, List
 from pymilvus import DataType
 
 from config.milvus_config import milvus_config
-from processor.base import BaseNode, setup_logging
-from processor.exceptions import StateFieldError, MilvusError
-from processor.state import ImportGraphState
+from processor.import_processor.base import BaseNode, setup_logging
+from processor.import_processor.exceptions import StateFieldError, MilvusError
+from processor.import_processor.state import ImportGraphState
 from utils.milvus_utils import get_milvus_client, escape_milvus_string
 
 
